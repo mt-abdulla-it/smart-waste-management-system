@@ -4,7 +4,7 @@ import math
 def calculate_distance(lat1, lon1, lat2, lon2):
     return math.sqrt((lat1 - lat2)**2 + (lon1 - lon2)**2)
 
-def optimize_routes(bins_data, start_loc=(40.7300, -73.9900)):
+def optimize_routes(bins_data, start_loc=(6.9150, 79.8620)):
     """
     Finds an optimized route for collecting full bins.
     Uses NetworkX TSP approximation.
