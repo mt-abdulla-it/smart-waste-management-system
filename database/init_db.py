@@ -71,11 +71,11 @@ def init_db():
     cursor.execute('SELECT COUNT(*) FROM Bins')
     if cursor.fetchone()[0] == 0:
         mock_bins = [
-            ('Central Park', 40.7812, -73.9665, 10),
-            ('Times Square', 40.7580, -73.9855, 85),
-            ('Penn Station', 40.7506, -73.9935, 45),
-            ('Empire State', 40.7484, -73.9857, 95),
-            ('Grand Central', 40.7527, -73.9772, 20),
+            ('Galle Face Green', 6.9248, 79.8436, 10),
+            ('Viharamahadevi Park', 6.9142, 79.8612, 85),
+            ('Independence Square', 6.9044, 79.8675, 45),
+            ('Lotus Tower', 6.9274, 79.8586, 95),
+            ('Pettah Market', 6.9388, 79.8510, 20),
         ]
         cursor.executemany('''
             INSERT INTO Bins (location_name, latitude, longitude, fill_level)
