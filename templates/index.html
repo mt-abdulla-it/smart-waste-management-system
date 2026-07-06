@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}EcoSync - Home{% endblock %}
+{% block header %}Welcome to EcoSync{% endblock %}
+
+{% block content %}
+<div class="glass-panel card animate-fade-in" style="padding: 3rem; text-align: center; border-radius: 20px;">
+    <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary-color);">Smart Waste Management System</h1>
+    <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem;">
+        Optimizing garbage collection routes, saving fuel, and keeping our cities cleaner through intelligent bin monitoring.
+    </p>
+    
+    <div style="display: flex; gap: 1rem; justify-content: center;">
+        <a href="{{ url_for('dashboard') }}" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem;">View Dashboard</a>
+        <a href="{{ url_for('routes_page') }}" class="btn glass-panel" style="padding: 1rem 2rem; font-size: 1.1rem; color: white;">Optimize Routes</a>
+    </div>
+</div>
+{% endblock %}

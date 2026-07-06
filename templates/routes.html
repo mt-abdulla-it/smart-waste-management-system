@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}EcoSync - Optimized Routes{% endblock %}
+{% block header %}Collection Routes{% endblock %}
+
+{% block content %}
+<div class="glass-panel card animate-fade-in" style="padding: 2rem;">
+    <h2>Optimized Path for Full Bins</h2>
+    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Using Traveling Salesperson approximation algorithm to reduce fuel consumption and time.</p>
+    
+    <div style="margin-bottom: 1rem;">
+        <button onclick="calculateRoute()" class="btn btn-primary">Calculate Optimal Route</button>
+    </div>
+    
+    <div id="route-results" style="margin-top: 2rem; display: none;">
+        <div id="cost-metrics" class="glass-panel" style="margin-bottom: 2rem; padding: 1.5rem; border-radius: 12px; background: rgba(59, 130, 246, 0.1); border-left: 4px solid var(--primary-color);">
+            <!-- Populated via JS -->
+        </div>
+        
+        <h3>Path:</h3>
+        <ul id="path-list" style="list-style-type: none; padding-top: 1rem;">
+        </ul>
+    </div>
+</div>
+{% endblock %}
