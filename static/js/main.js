@@ -225,6 +225,10 @@ async function calculateRoute() {
                         <h3 style="font-size: 1.2rem;">${data.costs.distance_km} km</h3>
                     </div>
                     <div>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.2rem;">Vehicle</p>
+                        <h3 style="font-size: 1.2rem;">${data.costs.vehicle_type || 'Standard'}</h3>
+                    </div>
+                    <div>
                         <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.2rem;">Fuel Used</p>
                         <h3 style="font-size: 1.2rem;">${data.costs.fuel_used} L</h3>
                     </div>

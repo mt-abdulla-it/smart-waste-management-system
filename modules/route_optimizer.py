@@ -48,10 +48,29 @@ def optimize_routes(bins_data, start_loc=(6.9150, 79.8620)):
         
     total_dist_km = total_dist_degrees * 111.0 # rough conversion to km
     
+    # Traffic & Vehicle Type Logic for Colombo
+    has_narrow_roads = any(node == 'Pettah Market' for node in tsp_path)
+    vehicle_type = "Small Compactor" if has_narrow_roads else "Large Truck"
+    
+    # Apply traffic multiplier and vehicle specific parameters
+    # Colombo traffic is heavy, so we adjust speed and mileage
+    if has_narrow_roads:
+        traffic_multiplier = 1.5 # Pettah has heavy traffic
+        avg_speed = 15.0 # km/h in congestion
+        mileage = 8.0 # Small compactor mileage
+    else:
+        traffic_multiplier = 1.2 # Regular Colombo traffic
+        avg_speed = 25.0
+        mileage = 6.0 # Large truck mileage
+        
+    total_dist_km = total_dist_km * traffic_multiplier
+    
     # Import budget calculator
     from modules.budget_calculator import calculate_route_cost
     
-    cost_metrics = calculate_route_cost(total_dist_km)
+    # Assuming config is not passed, we use the defaults in calculate_route_cost but override speed/mileage
+    cost_metrics = calculate_route_cost(total_dist_km, avg_speed=avg_speed, mileage=mileage)
     cost_metrics['distance_km'] = round(total_dist_km, 2)
+    cost_metrics['vehicle_type'] = vehicle_type
     
     return tsp_path, coords, cost_metrics
