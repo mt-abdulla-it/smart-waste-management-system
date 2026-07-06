@@ -2,6 +2,15 @@ let map;
 let markers = {};
 let trendChart;
 
+const socket = io();
+
+socket.on('bin_update', (data) => {
+    // When a bin updates, refresh dashboard to show new status
+    if (window.location.pathname.includes('dashboard') || window.location.pathname === '/') {
+        loadDashboard();
+    }
+});
+
 function initMap() {
     map = L.map('city-map').setView([6.9271, 79.8612], 13);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -162,7 +171,7 @@ async function updateBin(binId, level) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: binId, fill_level: level })
         });
-        loadDashboard(); // Refresh UI instantly
+        // UI refreshes automatically via SocketIO event
     } catch (err) {
         console.error("Failed to update bin", err);
     }

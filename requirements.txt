@@ -4,3 +4,6 @@ pandas
 matplotlib
 networkx
 reportlab
+Flask-SocketIO
+eventlet
+scikit-learn

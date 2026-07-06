@@ -7,9 +7,11 @@ from modules.alert_system import process_alerts, check_budget_alert
 from modules.ai_predictor import predict_overflow_time
 from modules.report_generator import generate_pdf_report
 import json
+from flask_socketio import SocketIO
 
 app = Flask(__name__)
 app.config.from_object(Config)
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 def get_db_connection():
     conn = sqlite3.connect(app.config['DATABASE'])
@@ -57,6 +59,13 @@ def update_bin():
     
     # Process potential alerts
     process_alerts(bin_id, fill_level)
+    
+    # Emit real-time update
+    socketio.emit('bin_update', {
+        'id': bin_id, 
+        'fill_level': fill_level, 
+        'time_to_full': predict_overflow_time(fill_level)
+    })
     
     return jsonify({'success': True})
 
@@ -163,4 +172,4 @@ def api_report():
     return jsonify({'report_url': '/static/reports/monthly_report.pdf'})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    socketio.run(app, debug=True)

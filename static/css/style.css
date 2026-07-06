@@ -23,9 +23,9 @@
 
 body {
     font-family: 'Outfit', sans-serif;
-    background-color: var(--bg-color);
-    background-image: radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.15), transparent 25%),
-                      radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.15), transparent 25%);
+    background-color: #050810;
+    background-image: radial-gradient(circle at 10% 50%, rgba(59, 130, 246, 0.25), transparent 30%),
+                      radial-gradient(circle at 90% 30%, rgba(16, 185, 129, 0.25), transparent 30%);
     color: var(--text-main);
     min-height: 100vh;
     overflow-x: hidden;
@@ -43,14 +43,20 @@ a { text-decoration: none; color: inherit; }
 
 /* Glassmorphism Utilities */
 .glass-panel {
-    background: rgba(15, 23, 42, 0.45);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    border-left: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 15px 35px -5px rgba(0,0,0,0.6);
     border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.glass-panel:hover {
+    box-shadow: 0 20px 45px -5px rgba(0,0,0,0.8);
+    border-color: rgba(255,255,255,0.3);
 }
 
 /* Sidebar */
