@@ -1,0 +1,224 @@
+/* 
+    Premium CSS for Smart Waste Management System
+    Theme: Modern, Dark Mode, Glassmorphism 
+*/
+
+:root {
+    --bg-color: #0b0f19;
+    --text-main: #f0f4f8;
+    --text-muted: #94a3b8;
+    --primary-color: #3b82f6;
+    --accent-color: #10b981;
+    --danger-color: #ef4444;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    background-image: radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.15), transparent 25%),
+                      radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.15), transparent 25%);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3 { font-weight: 700; }
+a { text-decoration: none; color: inherit; }
+
+/* Layout Components */
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--glass-border);
+    z-index: 10;
+}
+
+.logo h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 0.2rem;
+}
+
+.logo p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+}
+
+.nav-links { list-style: none; }
+
+.nav-item {
+    display: block;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.8rem;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.nav-item:hover, .nav-item.active {
+    background: rgba(59, 130, 246, 0.2);
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+/* Header */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+}
+
+.header-title h1 {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+/* Cards & Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-title {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+/* Status Indicators */
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.status-safe { background-color: var(--accent-color); box-shadow: 0 0 10px var(--accent-color); }
+.status-warning { background-color: #f59e0b; box-shadow: 0 0 10px #f59e0b; }
+.status-danger { background-color: var(--danger-color); box-shadow: 0 0 10px var(--danger-color); }
+
+/* Progress Bars */
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Buttons */
+.btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes pulseDanger {
+    0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.pulse-danger {
+    animation: pulseDanger 1.5s infinite;
+}
