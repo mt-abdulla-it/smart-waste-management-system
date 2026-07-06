@@ -3,7 +3,7 @@ let markers = {};
 let trendChart;
 
 function initMap() {
-    map = L.map('city-map').setView([40.7600, -73.9800], 13);
+    map = L.map('city-map').setView([6.9271, 79.8612], 13);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
