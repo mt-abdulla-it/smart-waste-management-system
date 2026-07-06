@@ -86,7 +86,7 @@ def api_optimize():
         
         # Check if total monthly budget exceeds 85%
         total_spent = conn.execute('SELECT SUM(total_cost) FROM RouteLogs').fetchone()[0] or 0
-        budget_limit = conn.execute('SELECT monthly_budget_limit FROM BudgetConfig').fetchone()[0] or 120000.0
+        budget_limit = conn.execute('SELECT monthly_budget_limit FROM BudgetConfig').fetchone()[0] or 5000000.0
         check_budget_alert(total_spent, budget_limit)
         
         conn.commit()
@@ -106,7 +106,7 @@ def api_budget():
     if config:
         config = dict(config)
     else:
-        config = {'monthly_budget_limit': 120000.0}
+        config = {'monthly_budget_limit': 5000000.0}
         
     totals = conn.execute('''
         SELECT 
@@ -123,11 +123,11 @@ def api_budget():
     total_spent = totals['total_spent'] or 0.0
     
     return jsonify({
-        'limit': config.get('monthly_budget_limit', 120000.0),
+        'limit': config.get('monthly_budget_limit', 5000000.0),
         'total_spent': total_spent,
         'total_fuel': total_fuel,
         'total_driver': total_driver,
-        'remaining': config.get('monthly_budget_limit', 120000.0) - total_spent
+        'remaining': config.get('monthly_budget_limit', 5000000.0) - total_spent
     })
 
 @app.route('/api/report')
@@ -147,7 +147,7 @@ def api_report():
     bins_data = [dict(ix) for ix in bins]
     
     budget_data = {
-        'limit': dict(config).get('monthly_budget_limit', 120000.0) if config else 120000.0,
+        'limit': dict(config).get('monthly_budget_limit', 5000000.0) if config else 5000000.0,
         'total_fuel': totals['total_fuel'] or 0.0,
         'total_driver': totals['total_driver'] or 0.0,
         'total_spent': totals['total_spent'] or 0.0

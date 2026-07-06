@@ -64,7 +64,7 @@ def init_db():
         cursor.execute('''
             INSERT INTO BudgetConfig (fuel_price, mileage, driver_hourly_rate, monthly_budget_limit)
             VALUES (?, ?, ?, ?)
-        ''', (350.0, 12.0, 500.0, 120000.0))
+        ''', (350.0, 12.0, 500.0, 5000000.0))
 
 
     # Insert some initial mock data if empty

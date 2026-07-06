@@ -230,7 +230,7 @@ async function calculateRoute() {
                     </div>
                     <div>
                         <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.2rem;">Route Cost</p>
-                        <h3 style="font-size: 1.2rem; color: #3b82f6;">${data.costs.total_cost} LKR</h3>
+                        <h3 style="font-size: 1.2rem; color: #3b82f6;">${data.costs.total_cost.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})} LKR</h3>
                     </div>
                     <div style="text-align: right;">
                         <span style="background: ${effColor}; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">
