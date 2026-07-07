@@ -134,6 +134,7 @@ a { text-decoration: none; color: inherit; }
     height: 40px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    object-fit: cover;
 }
 
 /* Cards & Grid */
