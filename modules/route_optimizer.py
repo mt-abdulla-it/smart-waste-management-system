@@ -34,7 +34,7 @@ def optimize_routes(bins_data, start_loc=(6.9150, 79.8620)):
             G.add_edge(n1, n2, weight=dist)
             
     # TSP optimization using Simulated Annealing for potentially better results
-    tsp_path = nx.approximation.simulated_annealing_tsp(G, "cycle", max_iterations=5000)
+    tsp_path = nx.approximation.simulated_annealing_tsp(G, "greedy", max_iterations=5000)
     
     # Extract coordinates for mapping
     coords = [G.nodes[node]['pos'] for node in tsp_path]
