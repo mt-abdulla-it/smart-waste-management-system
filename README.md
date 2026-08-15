@@ -1,4 +1,4 @@
-# EcoSync: Smart Waste Management System.
+# EcoSync: Smart Waste Management System
 
 EcoSync is a modern, AI-powered smart waste management application designed to optimize municipal waste collection. It features real-time live bin tracking, AI-powered predictive fill levels, dynamic route optimization, and localized budget calculations.
 
