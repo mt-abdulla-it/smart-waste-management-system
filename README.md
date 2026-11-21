@@ -1,5 +1,14 @@
 # EcoSync: Smart Waste Management System.
 
+<p align="center">
+  <img src="https://img.shields.io/badge/AI-Route%20Optimization-informational?style=for-the-badge&logo=python" />
+  <img src="https://img.shields.io/badge/IoT-Telemetry%20Tracking-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Release-v1.0.0-success?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge" />
+</p>
+
+
 EcoSync is a modern, AI-powered smart waste management application designed to optimize municipal waste collection. It features real-time live bin tracking, AI-powered predictive fill levels, dynamic route optimization, and localized budget calculations.
 
 This version is specifically localized for the **Colombo Municipal Council (CMC)** (the "Sri Lanka Way"), featuring LKR currencies, traffic simulation for narrow roads like Pettah, and CMC-styled alert dispatching.
